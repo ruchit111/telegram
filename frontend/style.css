@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #17231f;
+  background: #edf2ed;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: #edf2ed; }
+button, input, textarea { font: inherit; }
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 48px 24px;
+  background: radial-gradient(circle at 12% 10%, rgba(242, 190, 91, .22), transparent 28%), linear-gradient(135deg, #edf2ed 0%, #f8f4ec 100%);
+}
+
+.form-container {
+  width: min(100%, 960px);
+  display: grid;
+  grid-template-columns: .82fr 1.18fr;
+  overflow: hidden;
+  border: 1px solid rgba(23, 35, 31, .08);
+  border-radius: 24px;
+  background: #fffdf9;
+  box-shadow: 0 24px 70px rgba(35, 48, 38, .13);
+}
+
+.intro-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 610px;
+  padding: 42px 38px;
+  color: #f7f2e7;
+  background: #1d3b32;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 70px;
+  border-radius: 12px;
+  color: #1d3b32;
+  background: #f0bd59;
+  font-size: 24px;
+  font-weight: 700;
+}
+.eyebrow { margin: 0 0 16px; color: #f0bd59; font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.intro-panel h1, .form-header h2 { margin: 0; font-family: "Space Grotesk", sans-serif; letter-spacing: 0; }
+.intro-panel h1 { max-width: 300px; font-size: clamp(32px, 4vw, 48px); line-height: 1.04; }
+.intro-copy { max-width: 275px; margin: 22px 0 0; color: #c9d5cc; font-size: 15px; line-height: 1.7; }
+.delivery-note { display: flex; align-items: center; gap: 10px; margin-top: auto; color: #dce7dd; font-size: 13px; }
+.delivery-dot { width: 9px; height: 9px; border-radius: 50%; background: #80c59d; box-shadow: 0 0 0 5px rgba(128, 197, 157, .12); }
+
+.form-content { padding: 42px 48px 40px; }
+.form-header { margin-bottom: 30px; }
+.badge { display: inline-flex; padding: 7px 10px; border-radius: 7px; color: #23644a; background: #e4f1e8; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.form-header h2 { margin-top: 16px; color: #17231f; font-size: 32px; line-height: 1.15; }
+.form-header p { margin: 10px 0 0; color: #718078; font-size: 14px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; margin-bottom: 7px; color: #35453e; font-size: 13px; font-weight: 700; }
+.form-group label span { color: #c45c46; }
+.form-group input, .form-group textarea { width: 100%; border: 1px solid #d7dfd8; border-radius: 9px; outline: none; color: #17231f; background: #fff; transition: border-color .2s, box-shadow .2s, background .2s; }
+.form-group input { height: 46px; padding: 0 13px; }
+.form-group textarea { min-height: 116px; padding: 12px 13px; resize: vertical; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: #a0aca4; }
+.form-group input:focus, .form-group textarea:focus { border-color: #347454; box-shadow: 0 0 0 3px rgba(52, 116, 84, .12); }
+.form-group input:disabled, .form-group textarea:disabled { background: #f0f3ef; cursor: not-allowed; }
+.error-text { margin: 6px 0 0; color: #bd4838; font-size: 12px; }
+
+.status-message { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-top: 20px; padding: 12px 14px; border-radius: 9px; font-size: 13px; line-height: 1.45; }
+.status-message.success { border: 1px solid #b7ddc1; color: #236440; background: #edf9f0; }
+.status-message.error { border: 1px solid #f1c3ba; color: #a43d31; background: #fff2f0; }
+.telegram-link { color: inherit; font-weight: 700; }
+.submit-button { width: 100%; height: 50px; margin-top: 22px; border: 0; border-radius: 9px; color: #fffdf9; background: #347454; font-size: 14px; font-weight: 700; cursor: pointer; transition: transform .2s, background .2s, opacity .2s; }
+.submit-button:hover:not(:disabled) { background: #285d43; transform: translateY(-1px); }
+.submit-button:disabled { opacity: .62; cursor: not-allowed; }
+
+@media (max-width: 720px) {
+  .app { padding: 20px 12px; }
+  .form-container { grid-template-columns: 1fr; border-radius: 18px; }
+  .intro-panel { min-height: auto; padding: 28px 24px; }
+  .brand-mark { margin-bottom: 42px; }
+  .intro-panel h1 { max-width: 430px; font-size: 34px; }
+  .intro-copy { margin-bottom: 28px; }
+  .form-content { padding: 30px 22px 26px; }
+}
