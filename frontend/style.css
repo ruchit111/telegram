@@ -81,6 +81,39 @@ button, input, textarea { font: inherit; }
 .submit-button:hover:not(:disabled) { background: #285d43; transform: translateY(-1px); }
 .submit-button:disabled { opacity: .62; cursor: not-allowed; }
 
+.success-container {
+  width: min(100%, 680px);
+  padding: 52px;
+  border: 1px solid rgba(23, 35, 31, .08);
+  border-radius: 24px;
+  background: #fffdf9;
+  box-shadow: 0 24px 70px rgba(35, 48, 38, .13);
+}
+.success-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 28px;
+  border-radius: 50%;
+  color: #fffdf9;
+  background: #347454;
+  font-size: 30px;
+  font-weight: 700;
+}
+.success-container .eyebrow { margin-bottom: 14px; color: #347454; }
+.success-container h1 { max-width: 510px; margin: 0; font-family: "Space Grotesk", sans-serif; color: #17231f; font-size: clamp(32px, 5vw, 50px); line-height: 1.04; }
+.success-copy { margin: 16px 0 28px; color: #718078; font-size: 16px; line-height: 1.6; }
+.submission-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin: 26px 0; overflow: hidden; border: 1px solid #d7dfd8; border-radius: 10px; background: #d7dfd8; }
+.submission-summary > div { display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 14px; background: #fff; }
+.submission-summary span { color: #718078; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.submission-summary strong { overflow-wrap: anywhere; color: #17231f; font-size: 14px; font-weight: 500; line-height: 1.45; }
+.submission-summary .summary-message { grid-column: 1 / -1; }
+.delivery-status { margin: 0 0 16px; color: #a43d31; font-size: 13px; }
+.delivery-status.delivered { color: #236440; }
+.success-container .telegram-link { display: inline-block; margin-bottom: 4px; color: #236440; }
+.success-container .submit-button { margin-top: 24px; }
+
 @media (max-width: 720px) {
   .app { padding: 20px 12px; }
   .form-container { grid-template-columns: 1fr; border-radius: 18px; }
@@ -89,4 +122,7 @@ button, input, textarea { font: inherit; }
   .intro-panel h1 { max-width: 430px; font-size: 34px; }
   .intro-copy { margin-bottom: 28px; }
   .form-content { padding: 30px 22px 26px; }
+  .success-container { padding: 34px 22px 28px; border-radius: 18px; }
+  .submission-summary { grid-template-columns: 1fr; }
+  .submission-summary .summary-message { grid-column: auto; }
 }

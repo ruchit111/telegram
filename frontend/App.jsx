@@ -10,7 +10,72 @@
         message: "",
     };  
 
+    function SuccessPage() {
+      const [submission] = useState(() => {
+        try {
+          return JSON.parse(sessionStorage.getItem("latestSubmission") || "null");
+        } catch {
+          return null;
+        }
+      });
+
+      const returnToForm = () => {
+        sessionStorage.removeItem("latestSubmission");
+        window.location.assign("/");
+      };
+
+      return (
+        <main className="app">
+          <section className="success-container" aria-labelledby="success-title">
+            <div className="success-icon" aria-hidden="true">✓</div>
+            <p className="eyebrow">Submission received</p>
+            <h1 id="success-title">Thank you for reaching out.</h1>
+            <p className="success-copy">
+              Your information has been received successfully.
+            </p>
+
+            {submission ? (
+              <div className="submission-summary">
+                <div><span>Name</span><strong>{submission.form.name}</strong></div>
+                <div><span>Email</span><strong>{submission.form.email}</strong></div>
+                <div><span>Phone</span><strong>{submission.form.phone}</strong></div>
+                {submission.form.company && (
+                  <div><span>Company</span><strong>{submission.form.company}</strong></div>
+                )}
+                <div className="summary-message">
+                  <span>Message</span>
+                  <strong>{submission.form.message}</strong>
+                </div>
+              </div>
+            ) : (
+              <p className="success-copy">This confirmation has expired. You can submit a new message below.</p>
+            )}
+
+            <p className={`delivery-status ${submission?.telegramDelivered ? "delivered" : "saved"}`}>
+              {submission?.telegramDelivered
+                ? "Delivered to Telegram successfully."
+                : "Saved on the backend. Telegram delivery is not configured yet."}
+            </p>
+
+            {submission?.telegramUrl && (
+              <a className="telegram-link" href={submission.telegramUrl} target="_blank" rel="noreferrer">
+                Open Telegram <span aria-hidden="true">↗</span>
+              </a>
+            )}
+
+            <button type="button" className="submit-button" onClick={returnToForm}>
+              Send another message
+            </button>
+          </section>
+        </main>
+      );
+    }
+
     function App() {
+      if (window.location.pathname === "/success") {
+        return <SuccessPage />;
+      }
+
         const [form , setForm] = useState(initialForm);
 
         const [errors , seterrors]  = useState({});
@@ -180,6 +245,12 @@
 
                 // sucess
 
+                sessionStorage.setItem("latestSubmission", JSON.stringify({
+                  form: { ...form },
+                  telegramDelivered: Boolean(result.telegramDelivered),
+                  telegramUrl: result.telegramUrl || ""
+                }));
+
                 setstatus({
                     type : "success",
                     message : result.message || "Form submitted successfully."
@@ -194,6 +265,7 @@
                 // clear validation error
 
                 seterrors({});
+                window.location.assign("/success");
             }catch (error) {
                 setstatus({
                     type: "error",
