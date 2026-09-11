@@ -237,7 +237,7 @@ app.post(
   submitLimiter,
   async (req, res) => {
     try {
-      console.log("Received form submission.");
+      console.log("Received form submission. ");
 
       const validation = validateForm(req.body);
 
@@ -375,7 +375,7 @@ app.post(
 app.use((req,res)=> {
   res.status(404).json({
     success: false,
-    message: "api endpoint not found"
+    message: "api endpoint not found "
   });
 });
 
