@@ -109,14 +109,14 @@ if(!message) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!emailRegex.test(email)) {
-    return {
+    return { 
       valid: false,
       message: "Please enter a valid email address."
     };
   }
 
 
-  if(name.length > 30) {
+  if(name.length > 30) { 
     return{
       valid: false,
       message : "name is too long."

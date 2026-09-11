@@ -227,9 +227,9 @@
         {/* Header */}
 
         <div className="form-header">
-          <div className="badge">Contact form</div>
+          <div className="badge">Contact form</div> 
 
-          <h2 id="form-title">Send  message</h2>
+          <h2 id="form-title">Send  message</h2> 
 
           <p>
             Required fields are marke with an asterisk.
