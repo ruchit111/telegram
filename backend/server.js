@@ -126,7 +126,7 @@ if(!message) {
   if(email.length > 50) {
     return{
       valid : false,
-      message : "email address is to long"
+      message : "email is to long"
     }
   }
 

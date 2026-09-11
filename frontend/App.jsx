@@ -232,7 +232,7 @@
           <h2 id="form-title">Send  message</h2>
 
           <p>
-            Required fields are marked with an asterisk.
+            Required fields are marke with an asterisk.
           </p>
         </div>
 
