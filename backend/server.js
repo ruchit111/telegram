@@ -219,6 +219,16 @@ for (const [key, timestamp] of processedSubmissions.entries()){
 
 // health check
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Telegram form backend is running.",
+    frontendUrl: "http://localhost:5173",
+    healthCheck: "/api/health",
+    submitEndpoint: "/api/telegram-submit"
+  });
+});
+
 app.get("/api/health", (req,res)=> {
   const telegram = loadTelegramConfig();
 
