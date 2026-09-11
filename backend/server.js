@@ -9,7 +9,9 @@ import ratelimit from "express-rate-limit";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const envPath = path.join(__dirname, ".env");
-const submissionsPath = path.join(__dirname, "submissions.json");
+const submissionsPath = process.env.VERCEL
+  ? path.join("/tmp", "submissions.json")
+  : path.join(__dirname, "submissions.json");
 
 dotenv.config({ path: envPath });
 
@@ -82,7 +84,7 @@ if(!name) {
   return{
     valid : false,
     message : "name is required."
-  };
+    };
 }
 
 if(!email) {
@@ -392,6 +394,9 @@ app.use((req,res)=> {
 
 // start server 
 
+export { app };
+
+if (!process.env.VERCEL) {
 app.listen(PORT,()=> {
   const telegram = loadTelegramConfig();
 
@@ -419,6 +424,7 @@ app.listen(PORT,()=> {
   console.log("");
 
 });
+}
 
 
 

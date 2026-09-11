@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "node.exe dev-server.js"
+    "dev": "node.exe dev-server.js",
+    "build": "vite build"
   },
   "dependencies": {
     "react": "^19.2.8",

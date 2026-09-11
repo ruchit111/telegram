@@ -1,6 +1,6 @@
     import { useState } from "react";
 
-    const api_url = import.meta.env.VITE_API_URL  || "http://localhost:5000";
+    const api_url = import.meta.env.VITE_API_URL || "";
 
     const initialForm = {
         name: "",
