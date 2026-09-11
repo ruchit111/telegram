@@ -229,7 +229,7 @@
         <div className="form-header">
           <div className="badge">Contact form</div>
 
-          <h2 id="form-title">Send a message</h2>
+          <h2 id="form-title">Send  message</h2>
 
           <p>
             Required fields are marked with an asterisk.
